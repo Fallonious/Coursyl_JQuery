@@ -1,4 +1,5 @@
 <% if assignment.status(current_user).name != "Future" %>
+<%= link_to '<i class="fa fa-calendar" title="Reschedule"></i>'.html_safe, "#due-date-modal", data: {toggle: "modal", target: "#due-date-modal-#{{assignment.id}}"} %>
   <%= link_to '<i class="fa fa-edit" title="Take Assignment"></i>'.html_safe, assignment_path(assignment) %>
 <% else %>
   <i class="fa fa-edit muted" title="Take Assignment"></i>
@@ -26,9 +27,6 @@
 
   <% else %>
     <% if assignment.students_can_submit %>
-
-    <%= link_to '<i class="fa fa-calendar" title="Edit Due Date"</i>'.html_safe %>
-
       <%= link_to '<i class="fa fa-legal" title="Grade Assignment"</i>'.html_safe, grade_assignment_path(assignment) %>
     <% else %>
       <%= link_to '<i class="fa fa-legal" title="Grade Assignment"></i>'.html_safe, grade_matrix_assignment_path(assignment) %>
