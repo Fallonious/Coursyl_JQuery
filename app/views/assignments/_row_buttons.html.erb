@@ -3,14 +3,33 @@
 <% else %>
   <i class="fa fa-edit muted" title="Take Assignment"></i>
 <% end %>
+<!--
+<div class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>EDIT DUE DATE INFO</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div> -->
+
 
 <% if current_user && current_user.teaching?(assignment.course) %>
   <% if assignment.status(current_user).name == "Future" %>
     <i class="fa fa-legal muted"></i>
     <i class="fa fa-bar-chart-o muted"></i>
+
   <% else %>
     <% if assignment.students_can_submit %>
-      <%= link_to '<i class="fa fa-legal" title="Grade Assignment"></i>'.html_safe, grade_assignment_path(assignment) %>
+
+    <%= link_to '<i class="fa fa-calendar" title="Edit Due Date"</i>'.html_safe %>
+
+      <%= link_to '<i class="fa fa-legal" title="Grade Assignment"</i>'.html_safe, grade_assignment_path(assignment) %>
     <% else %>
       <%= link_to '<i class="fa fa-legal" title="Grade Assignment"></i>'.html_safe, grade_matrix_assignment_path(assignment) %>
     <% end %>

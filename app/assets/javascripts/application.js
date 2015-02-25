@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require d3
 //= require_tree .
+
+
+
 $(function() {
   hideSection();
   $("#add-row").on("click", addRow);
@@ -22,15 +25,13 @@ $(function() {
 });
 
 function greyOut(){
-  // var button = document.getElementById("update_course_button");
-  // setTimeout(function(){button.disabled = true;}, 1);
 
   $("#update_course_button").attr("disabled","disabled");
   $(".edit_course").submit();
 }
 
 function hideSection(){
-  if (document.getElementById("grade_list")!= "null"){
+  if ($("#grade_list")!= "null"){
     var section = document.getElementById("grade_list");
     var last = section.lastElementChild;
     last.style.display = 'none';
