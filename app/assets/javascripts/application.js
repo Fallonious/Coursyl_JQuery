@@ -16,7 +16,6 @@
 //= require_tree .
 
 
-
 $(function() {
   hideSection();
   $("#add-row").on("click", addRow);
